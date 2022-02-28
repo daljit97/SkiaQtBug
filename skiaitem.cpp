@@ -7,9 +7,7 @@
 #include <core/SkCanvas.h>
 #include <gpu/gl/GrGLInterface.h>
 
-SkiaItem::SkiaItem()
-    : m_t(0)
-    , m_renderer(nullptr)
+SkiaItem::SkiaItem(): m_renderer(nullptr)
 {
     connect(this, &QQuickItem::windowChanged, this, &SkiaItem::handleWindowChanged);
 }
@@ -58,7 +56,6 @@ void SkiaItem::sync()
         connect(window(), &QQuickWindow::beforeRenderPassRecording, m_renderer, &SkiaRenderer::paint, Qt::DirectConnection);
     }
     m_renderer->setViewportSize(window()->size() * window()->devicePixelRatio());
-    m_renderer->setT(m_t);
     m_renderer->setWindow(window());
 }
 
