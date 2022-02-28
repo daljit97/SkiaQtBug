@@ -14,16 +14,6 @@ SkiaItem::SkiaItem()
     connect(this, &QQuickItem::windowChanged, this, &SkiaItem::handleWindowChanged);
 }
 
-void SkiaItem::setT(qreal t)
-{
-    if (t == m_t)
-        return;
-    m_t = t;
-    emit tChanged();
-    if (window())
-        window()->update();
-}
-
 void SkiaItem::handleWindowChanged(QQuickWindow *win)
 {
     if (win) {
