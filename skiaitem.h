@@ -12,7 +12,7 @@ class SkiaRenderer : public QObject, protected QOpenGLFunctions
 {
     Q_OBJECT
 public:
-    SkiaRenderer() : m_t(0) { }
+    SkiaRenderer() { }
     ~SkiaRenderer();
 
 void setViewportSize(const QSize &size) { m_viewportSize = size; }
